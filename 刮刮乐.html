@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#canvas1{
+		/* background: url(images/1.jpg); */
+	}
+
+	</style>
+</head>
+<body>
+	<canvas id='canvas1' width=500 height=500 ></canvas>
+
+	<script>
+	var myCanvas1 =document.getElementById('canvas1');
+	var ctx = myCanvas1.getContext("2d");
+	var w =myCanvas1.width;
+	var h =myCanvas1.height;
+	var nowPoint={};
+	var lastPoint ={};
+	function init(){
+		ctx.fillStyle = '#ccc';
+		ctx.fillRect(0, 0, w, h);
+		ctx.globalCompositeOperation = 'destination-out';
+		var oimg = new Image(); 
+		oimg.src = 'images/1.jpg';
+		oimg.onload = function () {
+			myCanvas1.style.background='url('+oimg.src+')';
+			myCanvas1.addEventListener('mousedown', mDown, false);
+		}
+	}
+	init();
+	function mDown (e){
+		lastPoint.x=e.clientX - myCanvas1.offsetLeft;
+		lastPoint.y=e.clientY - myCanvas1.offsetTop;
+		myCanvas1.addEventListener('mousemove', mMove, false);
+		document.addEventListener('mouseup', mUp, false);
+	}
+	function mMove(e){
+		nowPoint.x = e.clientX - myCanvas1.offsetLeft;
+		nowPoint.y = e.clientY - myCanvas1.offsetTop;
+		ctx.beginPath();
+		ctx.fillStyle = 'red';
+		ctx.lineWidth =40;
+		ctx.lineCap = 'round'
+		ctx.moveTo(lastPoint.x, lastPoint.y);
+		ctx.lineTo(nowPoint.x, nowPoint.y);
+		ctx.stroke();
+		ctx.arc(nowPoint.x, nowPoint.y, 20, 0, Math.PI*2, 0);
+		ctx.fill();
+		ctx.closePath();
+
+		lastPoint.x=nowPoint.x;
+		lastPoint.y=nowPoint.y;
+
+	}
+	function mUp(){
+		myCanvas1.removeEventListener('mousemove', mMove, false);
+		document.removeEventListener('mouseup', mUp, false);
+		clearCanvas();
+	}
+	function clearCanvas(){
+		var d = ctx.getImageData(0, 0, w, h),
+		    len = d.data.length,
+		    content=0;
+		for(var i =0 ;i<len ;i+=4){
+			if (d.data[i]==0) {
+				content ++;
+			}
+		}
+		if(content >= len/4*0.7){
+			ctx.clearRect(0, 0, w, h);
+		}
+	}
+
+	</script>
+</body>
+</html>

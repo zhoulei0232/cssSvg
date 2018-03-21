@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.cat-body,circle{
+		stroke:#333;
+		stroke-width:2;
+		fill:#00A3D9;
+	}
+	.bell,.hand,.cat-body-t,.cat-body-c,.face , .eye{
+		stroke:#333;
+		stroke-width:2;
+		fill:#fff;
+	}
+	
+	.neck{
+		stroke:#333;
+		stroke-width:2;
+		fill:#D90000;
+	}
+	.nose{
+		stroke:#333;
+		stroke-width:2;
+		fill:#D90000;
+	}
+	.nose-in{
+		stroke:#fff;
+		stroke-width:2;
+		fill:#fff;
+	}
+	.eye-in{
+		fill:#000;
+	}
+	line{
+		stroke:#333;
+		stroke-width:2;
+	}
+	.mouse{
+		stroke:#333;
+		stroke-width:2;
+		fill:transparent;
+	}
+	.bell{
+		stroke:#333;
+		stroke-width:2;
+		fill:#FFFF00;
+	}
+	body{
+		background-color: yellow;
+	}
+	.money{
+		fill:red;
+	}
+	text{
+		font-weight: 900;
+		font-size: 16px;
+		fill:#fff;
+	}
+	</style>
+</head>
+<body>
+	<svg width=1000 height=1000>
+		<circle cx='400' cy='300' r='200'></circle>
+		<ellipse class='face' cx='400' cy='345' rx='165' ry='140'></ellipse>
+		<circle class='nose' cx='400' cy='286' r='25'></circle>
+		<circle class='nose-in' cx='410' cy='276' r='7'></circle>
+		<ellipse class='eye' cx='350' cy='220' rx='50' ry='63'></ellipse>
+		<ellipse class='eye' cx='450' cy='220' rx='50' ry='63'></ellipse>
+		<circle  class='eye-in' cx='365' cy='255' r='12' ></circle >
+		<circle  class='eye-in' cx='435' cy='255' r='12' ></circle >
+
+
+		<line x1='400' y1='320' x2='400' y2='430'></line>
+		<line x1='270' y1='310' x2='350' y2='330'></line>
+		<line x1='270' y1='335' x2='350' y2='340'></line>
+		<line x1='270' y1='360' x2='350' y2='350'></line>
+
+		<line x1='530' y1='310' x2='450' y2='330'></line>
+		<line x1='530' y1='335' x2='450' y2='340'></line>
+		<line x1='530' y1='360' x2='450' y2='350'></line>
+		
+		<path class='mouse' d='M 270 380 A 200 260 0 0 0 530 380'></path>
+		<path class='cat-body' d='M 400 500 h -140 l -80 80 l 40 40 l 35 -35 v 160 h 290 v -160 l 35 35 l 40 -40 l -80 -80 h -140'></path>
+		<path class='cat-body-c' d='M 400 500 L 310 500 A 110 110 0 1 0 490 500'></path>
+		<rect class='neck' x='240' y='460' width='320' height='40' rx='15' ry='15'></rect>
+		<rect class='cat-body-t' x='380' y='715' width='40' height='50' rx='20' ry='20'></rect>
+		<rect class='cat-body-t cat-body-fl' x='230' y='740' width='170' height='40' rx='20' ry='20'></rect>
+		<rect class='cat-body-t cat-body-fr' x='400' y='740' width='170' height='40' rx='20' ry='20'></rect>
+
+		<circle  class='hand' cx='190' cy='610' r='35' ></circle >
+		<circle  class='hand' cx='610' cy='610' r='35' ></circle >
+		<circle  class='bell' cx='400' cy='510' r='30' ></circle >
+		<circle  class='eye-in' cx='400' cy='515' r='8' ></circle >
+		<line x1='400' y1='522' x2='400' y2='540'></line>
+		<line x1='378' y1='490' x2='422' y2='490'></line>
+		<line x1='368' y1='500' x2='432' y2='500'></line>
+		
+	
+		<rect class='money' x='330' y='520' width='40' height='60' rx='2' ry='2' >
+		</rect>
+		<text x='343' y='550'>￥</text>	
+		<rect class='money' x='390' y='540' width='40' height='60' rx='2' ry='2' >
+		</rect>
+		<rect class='money' x='440' y='530' width='40' height='60' rx='2' ry='2' >
+		</rect>
+		<text x='453' y='560'>￥</text>	
+			<path class='cat-body-c' d='M 400 560 L 310 560 A 90 90 0 1 0 490 560 L 400 560'></path>
+	</svg>
+</body>
+</html>
